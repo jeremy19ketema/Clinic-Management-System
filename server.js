@@ -18,3 +18,28 @@ const url = require('url');
             res.end('Clinic Not Found');
         }
     } 
+    else if (req.url === '/api/add-clinic' && req.method === 'POST') {
+        let body = '';
+        req.on('data', chunk => {
+            body += chunk.toString();
+        });
+        
+        req.on('end', async () => {
+            const newClinic = JSON.parse(body);
+            const addedClinic = await addClinic(newClinic);
+            res.writeHead(201, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify(addedClinic));
+        });
+    } 
+     else if (req.url === '/api/update-clinic' && req.method === 'PUT') {
+        let body = '';
+        req.on('data', chunk => {
+            body += chunk.toString();
+        });
+        req.on('end', async () => {
+            const updatedClinic = JSON.parse(body);
+            const result = await updateClinic(updatedClinic);
+            res.writeHead(200, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify(result));
+        });
+    }
