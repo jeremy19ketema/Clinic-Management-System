@@ -61,3 +61,15 @@ const url = require('url');
         res.end('Not Found');
     }
 });
+const addClinic = async (clinic) => {
+    const clinicDataPath = path.join(__dirname, 'data', 'clinics.json');
+    const data = await fs.promises.readFile(clinicDataPath, 'utf-8');
+    
+    const clinics = JSON.parse(data);
+    const newId = clinics.length > 0 ? clinics[clinics.length - 1].id + 1 : 1;
+    clinic.id = newId;
+    clinics.push(clinic);
+    await fs.promises.writeFile(clinicDataPath, JSON.stringify(clinics, null, 2));
+
+    return clinic;
+}
