@@ -1,32 +1,82 @@
 [
-{
-"id": 1,
-"name": "Abel Tesfaye",
-"age": 32,
-"disease": "Malaria"
-},
-{
-"id": 2,
-"name": "Meseret Kebede",
-"age": 27,
-"disease": "Typhoid"
-},
-{
-"id": 3,
-"name": "Dawit Bekele",
-"age": 45,
-"disease": "Hypertension"
-},
-{
-"id": 4,
-"name": "Hana Alemu",
-"age": 21,
-"disease": "Anemia"
-},
-{
-"id": 5,
-"name": "Tadesse Mekonnen",
-"age": 50,
-"disease": "Diabetes"
-}
+    {
+        "id": 1,
+        "name": "አዲስ ህክምና ክሊኒክ (Addis Hekmuna Clinic)",
+        "address": "Bole Road, near Bole Medhanialem Church, Addis Ababa",
+        "specialty": "General Medicine",
+        "workingHours": "Monday - Saturday: 8:00 AM - 8:00 PM",
+        "city": "Addis Ababa"
+    },
+    {
+        "id": 2,
+        "name": "Yeka General Hospital Clinic",
+        "address": "Yeka Sub-city, Woreda 8, Addis Ababa",
+        "specialty": "Family Medicine & Pediatrics",
+        "workingHours": "24/7 Emergency Services",
+        "city": "Addis Ababa"
+    },
+    {
+        "id": 3,
+        "name": "Gondar University Teaching Clinic",
+        "address": "Maraki Area, Gondar City, Amhara Region",
+        "specialty": "Teaching Hospital & Specialized Care",
+        "workingHours": "Monday - Friday: 9:00 AM - 5:00 PM",
+        "city": "Gondar"
+    },
+    {
+        "id": 4,
+        "name": "Hawassa Referral Clinic",
+        "address": "Hawassa Town, near Sidama Cultural Center, SNNPR",
+        "specialty": "Internal Medicine & Surgery",
+        "workingHours": "Monday - Saturday: 8:00 AM - 10:00 PM",
+        "city": "Hawassa"
+    },
+    {
+        "id": 5,
+        "name": "Debre Berhan Health Center",
+        "address": "Debre Berhan City, Main Road, North Shewa Zone",
+        "specialty": "Primary Care & Maternity",
+        "workingHours": "Monday - Friday: 8:30 AM - 6:00 PM",
+        "city": "Debre Berhan"
+    },
+    {
+        "id": 6,
+        "name": "Bahir Dar St. George Clinic",
+        "address": "Kebele 14, near Lake Tana, Bahir Dar",
+        "specialty": "General Medicine & Eye Care",
+        "workingHours": "Monday - Saturday: 9:00 AM - 7:00 PM",
+        "city": "Bahir Dar"
+    },
+    {
+        "id": 7,
+        "name": "Dire Dawa Holy Family Clinic",
+        "address": "Dire Dawa City, Dechatu River Area",
+        "specialty": "Maternal & Child Health",
+        "workingHours": "Monday - Friday: 8:00 AM - 5:00 PM",
+        "city": "Dire Dawa"
+    },
+    {
+        "id": 8,
+        "name": "Jimma University Specialized Clinic",
+        "address": "Jimma Town, near Jimma University Main Campus",
+        "specialty": "Specialized Care & Research",
+        "workingHours": "Monday - Friday: 9:00 AM - 4:00 PM",
+        "city": "Jimma"
+    },
+    {
+        "id": 9,
+        "name": "Mekelle Ayder Clinic",
+        "address": "Ayder Sub-city, Mekelle, Tigray Region",
+        "specialty": "Comprehensive Medical Services",
+        "workingHours": "24/7 Emergency Services",
+        "city": "Mekelle"
+    },
+    {
+        "id": 10,
+        "name": "Adama Medical Clinic",
+        "address": "Adama City, Nazareth, Main Highway",
+        "specialty": "General Practice & Dental",
+        "workingHours": "Monday - Saturday: 8:00 AM - 9:00 PM",
+        "city": "Adama"
+    }
 ]

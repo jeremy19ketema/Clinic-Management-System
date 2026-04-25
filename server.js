@@ -96,3 +96,16 @@ const deleteClinic = async (id) => {
     }
     return null;
 }
+let clinics = [];
+const loadInitialData = async () => {
+    const clinicDataPath = path.join(__dirname, 'data', 'clinics.json');
+    const data = await fs.promises.readFile(clinicDataPath, 'utf-8');
+    clinics = JSON.parse(data);
+}
+
+const PORT = 3000;
+server.listen(PORT, async () => {
+    await loadInitialData();
+    console.log(`Clinic Management System Server is running on port ${PORT}`);
+    console.log(`Ethiopian Clinics API is ready!`);
+});
