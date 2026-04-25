@@ -84,3 +84,15 @@ const updateClinic = async (clinic) => {
     }
     return clinic;
 }
+const deleteClinic = async (id) => {
+    const clinicDataPath = path.join(__dirname, 'data', 'clinics.json');
+    const data = await fs.promises.readFile(clinicDataPath, 'utf-8');
+    const clinics = JSON.parse(data);
+    const index = clinics.findIndex(c => c.id === id);
+    if (index !== -1) {
+        const deletedClinic = clinics.splice(index, 1)[0];
+        await fs.promises.writeFile(clinicDataPath, JSON.stringify(clinics, null, 2));
+        return deletedClinic;
+    }
+    return null;
+}
