@@ -1,7 +1,6 @@
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
-
  const server = http.createServer((req, res) => {
     if (req.url === '/api/clinics' && req.method === 'GET') {
         res.writeHead(200, { 'Content-Type': 'application/json' });
@@ -62,7 +61,7 @@ const path = require('path');
     }
 });
 const addClinic = async (clinic) => {
-    const clinicDataPath = path.join(__dirname, 'data', 'data.json');
+    const clinicDataPath = path.join(__dirname, 'data.json');
     const data = await fs.promises.readFile(clinicDataPath, 'utf-8');
     
     const clinics = JSON.parse(data);
@@ -74,7 +73,7 @@ const addClinic = async (clinic) => {
     return clinic;
 }
 const updateClinic = async (clinic) => {
-    const clinicDataPath = path.join(__dirname, 'data', 'data.json');
+    const clinicDataPath = path.join(__dirname, 'data.json');
     const data = await fs.promises.readFile(clinicDataPath, 'utf-8');
     const clinics = JSON.parse(data);
     const index = clinics.findIndex(c => c.id === clinic.id);
@@ -85,7 +84,7 @@ const updateClinic = async (clinic) => {
     return clinic;
 }
 const deleteClinic = async (id) => {
-    const clinicDataPath = path.join(__dirname, 'data', 'data.json');
+    const clinicDataPath = path.join(__dirname, 'data.json');
     const data = await fs.promises.readFile(clinicDataPath, 'utf-8');
     const clinics = JSON.parse(data);
     const index = clinics.findIndex(c => c.id === id);
@@ -98,7 +97,7 @@ const deleteClinic = async (id) => {
 }
 let clinics = [];
 const loadInitialData = async () => {
-    const clinicDataPath = path.join(__dirname, 'data', 'data.json');
+    const clinicDataPath = path.join(__dirname, 'data.json');
     const data = await fs.promises.readFile(clinicDataPath, 'utf-8');
     clinics = JSON.parse(data);
 }
