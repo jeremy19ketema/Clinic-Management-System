@@ -73,3 +73,14 @@ const addClinic = async (clinic) => {
 
     return clinic;
 }
+const updateClinic = async (clinic) => {
+    const clinicDataPath = path.join(__dirname, 'data', 'clinics.json');
+    const data = await fs.promises.readFile(clinicDataPath, 'utf-8');
+    const clinics = JSON.parse(data);
+    const index = clinics.findIndex(c => c.id === clinic.id);
+    if (index !== -1) {
+        clinics[index] = clinic;
+        await fs.promises.writeFile(clinicDataPath, JSON.stringify(clinics, null, 2));
+    }
+    return clinic;
+}
