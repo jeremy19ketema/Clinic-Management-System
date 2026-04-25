@@ -1,0 +1,32 @@
+[
+{
+"id": 1,
+"name": "Abel Tesfaye",
+"age": 32,
+"disease": "Malaria"
+},
+{
+"id": 2,
+"name": "Meseret Kebede",
+"age": 27,
+"disease": "Typhoid"
+},
+{
+"id": 3,
+"name": "Dawit Bekele",
+"age": 45,
+"disease": "Hypertension"
+},
+{
+"id": 4,
+"name": "Hana Alemu",
+"age": 21,
+"disease": "Anemia"
+},
+{
+"id": 5,
+"name": "Tadesse Mekonnen",
+"age": 50,
+"disease": "Diabetes"
+}
+]
