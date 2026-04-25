@@ -1,6 +1,6 @@
 const http = require('http');
 const fs = require('fs');
-const url = require('url');
+const path = require('path');
 
  const server = http.createServer((req, res) => {
     if (req.url === '/api/clinics' && req.method === 'GET') {
