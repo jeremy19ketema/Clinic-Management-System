@@ -43,3 +43,21 @@ const url = require('url');
             res.end(JSON.stringify(result));
         });
     }
+     else if (req.url.startsWith('/api/delete-clinic/') && req.method === 'DELETE') {
+        (async () => {
+            const clinicId = req.url.split('/')[3];
+            const result = await deleteClinic(parseInt(clinicId));
+            if (result) {
+                res.writeHead(200, { 'Content-Type': 'application/json' });
+                res.end(JSON.stringify(result));
+            } else {
+                res.writeHead(404, { 'Content-Type': 'text/plain' });
+                res.end('Clinic Not Found');
+            }
+        })();
+    } 
+    else {
+        res.writeHead(404, { 'Content-Type': 'text/plain' });
+        res.end('Not Found');
+    }
+});
