@@ -25,7 +25,21 @@ const DATA_FILE = __dirname + '/data.json';
         });
         
         req.on('end', async () => {
-            const newClinic = JSON.parse(body);
+
+            if(!body) {
+                res.writeHead(400, { 'Content-Type': 'text/plain' });
+                res.end('Bad Request: No data provided');
+                return;
+            }
+
+            let newClinic;
+            try {
+                newClinic = JSON.parse(body);
+            } catch (error) {
+                res.writeHead(400, { 'Content-Type': 'text/plain' });
+                res.end('Bad Request: Invalid JSON');
+                return;
+            }
             const addedClinic = await addClinic(newClinic);
             res.writeHead(201, { 'Content-Type': 'application/json' });
             res.end(JSON.stringify(addedClinic));
@@ -37,7 +51,19 @@ const DATA_FILE = __dirname + '/data.json';
             body += chunk.toString();
         });
         req.on('end', async () => {
-            const updatedClinic = JSON.parse(body);
+                if(!body) {
+                res.writeHead(400, { 'Content-Type': 'text/plain' });
+                res.end('Bad Request: No data provided');
+                return;
+            }
+            let updatedClinic;
+            try {
+                updatedClinic = JSON.parse(body);
+            } catch (error) {
+                res.writeHead(400, { 'Content-Type': 'text/plain' });
+                res.end('Bad Request: Invalid JSON');
+                return;
+            }
             const result = await updateClinic(updatedClinic);
             res.writeHead(200, { 'Content-Type': 'application/json' });
             res.end(JSON.stringify(result));
