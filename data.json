@@ -89,16 +89,19 @@
     "city": "Addis Ababa"
   },
   {
-    "name": "City Clinic",
-    "location": "Addis Ababa",
-    "id": 12
-  },
-  {
     "name": "Lideta Catholic Clinic",
     "address": "Lideta Sub-city, Addis Ababa",
     "specialty": "General Medicine",
     "workingHours": "Monday - Saturday: 9:00 AM - 6:00 PM",
     "city": "Addis Ababa",
     "id": 13
+  },
+  {
+    "id": 14,
+    "name": "Hawassa Medical Clinic",
+    "address": "Hawassa City,Sidama Main Highway",
+    "specialty": "General Practice & Dental",
+    "workingHours": "Monday - Saturday: 8:00 AM - 9:00 PM",
+    "city": "Hawassa"
   }
 ]
