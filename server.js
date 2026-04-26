@@ -1,6 +1,7 @@
 const http = require('http');
 const fs = require('fs');
-const path = require('path');
+const DATA_FILE = __dirname + '/data.json';
+
  const server = http.createServer((req, res) => {
     if (req.url === '/api/clinics' && req.method === 'GET') {
         res.writeHead(200, { 'Content-Type': 'application/json' });
@@ -61,44 +62,40 @@ const path = require('path');
     }
 });
 const addClinic = async (clinic) => {
-    const clinicDataPath = path.join(__dirname, 'data.json');
-    const data = await fs.promises.readFile(clinicDataPath, 'utf-8');
+    const data = await fs.promises.readFile(DATA_FILE, 'utf-8');
     
     const clinics = JSON.parse(data);
     const newId = clinics.length > 0 ? clinics[clinics.length - 1].id + 1 : 1;
     clinic.id = newId;
     clinics.push(clinic);
-    await fs.promises.writeFile(clinicDataPath, JSON.stringify(clinics, null, 2));
+    await fs.promises.writeFile(DATA_FILE, JSON.stringify(clinics, null, 2));
 
     return clinic;
 }
 const updateClinic = async (clinic) => {
-    const clinicDataPath = path.join(__dirname, 'data.json');
-    const data = await fs.promises.readFile(clinicDataPath, 'utf-8');
+    const data = await fs.promises.readFile(DATA_FILE, 'utf-8');
     const clinics = JSON.parse(data);
     const index = clinics.findIndex(c => c.id === clinic.id);
     if (index !== -1) {
         clinics[index] = clinic;
-        await fs.promises.writeFile(clinicDataPath, JSON.stringify(clinics, null, 2));
+        await fs.promises.writeFile(DATA_FILE, JSON.stringify(clinics, null, 2));
     }
     return clinic;
 }
 const deleteClinic = async (id) => {
-    const clinicDataPath = path.join(__dirname, 'data.json');
-    const data = await fs.promises.readFile(clinicDataPath, 'utf-8');
+    const data = await fs.promises.readFile(DATA_FILE, 'utf-8');
     const clinics = JSON.parse(data);
     const index = clinics.findIndex(c => c.id === id);
     if (index !== -1) {
         const deletedClinic = clinics.splice(index, 1)[0];
-        await fs.promises.writeFile(clinicDataPath, JSON.stringify(clinics, null, 2));
+        await fs.promises.writeFile(DATA_FILE, JSON.stringify(clinics, null, 2));
         return deletedClinic;
     }
     return null;
 }
 let clinics = [];
 const loadInitialData = async () => {
-    const clinicDataPath = path.join(__dirname, 'data.json');
-    const data = await fs.promises.readFile(clinicDataPath, 'utf-8');
+    const data = await fs.promises.readFile(DATA_FILE, 'utf-8');
     clinics = JSON.parse(data);
 }
 
